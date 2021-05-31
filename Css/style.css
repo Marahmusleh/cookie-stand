@@ -1,0 +1,40 @@
+nav li{
+    list-style-type: none;
+    background-color: #f080ca;
+    font-family: 'Handlee', cursive;
+    display: inline-block;
+    height:20px;
+    width:100px;
+    font-size:large;
+    padding-right: 30px;
+  }
+  img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 30%;
+    position: center;
+    top: 75px;
+  }
+
+  body{
+      background-color: rgb(43, 146, 146);
+  }
+
+  h2 {
+   color: rgb(60, 16, 218);
+   text-align: center;
+  }
+
+  ul li {
+      font-size:25px;
+      font:bold;
+      color:black;
+      background-color:rgb(201, 168, 179) ;
+      text-align: center;
+  }
+
+  p{
+      font: bold;
+      font-size: 20px;
+      font-family: 'Handlee', cursive;
+  }
