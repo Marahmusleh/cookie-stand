@@ -17,6 +17,7 @@ li a {
   
 
   body{
+    background-color:ivory;
     background-image: url("https://raw.githubusercontent.com/DevStation-COCC/bend-201d3/master/class-09/lab-b/assets/fish.jpg");
     background-repeat: repeat-y;
     width: 1000px;
@@ -35,14 +36,14 @@ li a {
       font-size:25px;
       font:bold;
       color:black;
-      background-color:blanchedalmond;
+      background-color:rgb(172, 165, 165);
       text-align: center;
   }
   #hours ul li {
     font-size:25px;
     font:bold;
     color:black;
-    background-color:blanchedalmond;
+    background-color:rgb(172, 165, 165);
     text-align: center;
 }
   p{
@@ -50,6 +51,10 @@ li a {
       font-size: 20px;
       font-family: 'Handlee', cursive;
       color:black;
+  }
+  #pics img{
+    width: 300px;
+    height: 300px;
   }
 
 
