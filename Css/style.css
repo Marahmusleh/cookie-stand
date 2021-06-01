@@ -1,6 +1,5 @@
 nav li {
     list-style-type: none;
-    background-color: #f080ca;
     font-family: 'Handlee', cursive;
     display: inline-block;
     height:20px;
@@ -8,38 +7,78 @@ nav li {
     font-size:large;
     padding-right: 30px;
   }
-  img {
-    max-width: 30%;
-    height: auto;
-    border-radius: 30%;
-    position: center;
-    top: 75px;
+li a {
+  background-color: #35c0b9b7;
+}
+
+  ul{
+  list-style-type: none;
   }
+  
 
   body{
-      background-color: rgb(43, 146, 146);
+    background-image: url("https://raw.githubusercontent.com/DevStation-COCC/bend-201d3/master/class-09/lab-b/assets/fish.jpg");
+    background-repeat: repeat-y;
+    width: 1000px;
+    align-content: center;
+    margin: auto;
   }
 
   h2 {
-   color: rgb(60, 16, 218);
-   text-align: center;
+    background-color: #353C45;
+    color: white;
+    font-family: 'Barriecito', cursive;
+    margin-top: 1px;
   }
 
-  ul li {
+ #About ul li {
       font-size:25px;
       font:bold;
       color:black;
-      background-color:rgb(201, 168, 179) ;
+      background-color:blanchedalmond;
       text-align: center;
   }
-
+  #hours ul li {
+    font-size:25px;
+    font:bold;
+    color:black;
+    background-color:blanchedalmond;
+    text-align: center;
+}
   p{
       font: bold;
       font-size: 20px;
       font-family: 'Handlee', cursive;
+      color:black;
   }
 
 
- table{
-      border-collapse: collapse;
+  table {
+    background-color:palevioletred;
+    border-radius: 15px;
+    box-shadow: 0, 6px, 12px, rgba(0,0,0,0,23), 0 10px 40px rgba(0, 0, 0, 0.19);
+    margin: 15px auto 10px;
+    max-height: 100vh;
+    padding: 13px 10px 20px;
+    width: 85vw;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  table th {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .9em;
+    font-weight: 600;
+    padding: 10px;
+  }
+  
+  table td {
+    border: 3px solid white;
+    padding:15px;
+  }
+  table tr:nth-child(even) {
+    background: gray; 
   }

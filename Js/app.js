@@ -3,9 +3,9 @@
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 let allcookieshops = [];
-let globalVar = document.getElementById('article');
+let globalVar = document.getElementById('container');
     let table = document.createElement('table');
-    article.appendChild(table);
+    container.appendChild(table);
 
 function Shops (ShopName,min,max,avg) {
 this.ShopName = ShopName;
@@ -75,7 +75,6 @@ Shops.prototype.getcookiesNum = function(){
     let thElement = document.createElement('th');
     trElement.appendChild(thElement);
     thElement.textContent = this.ShopName;
-  
     for (let i = 0; i < hours.length; i++) {
         let cookieTD = document.createElement('td');
         cookieTD.textContent = this.cookiesPerHoure[i];
@@ -95,7 +94,7 @@ function footerRow (){
   let thElement = document.createElement('th');
   trElement.appendChild(thElement);
   thElement.textContent='Totals';
-
+  let cookiesTotal = 0;
   for(let i= 0 ; i<hours.length;i++){
     let sum = 0 ;
     sum = Seattle.cookiesPerHoure[i] + Tokyo.cookiesPerHoure[i] +
@@ -104,8 +103,14 @@ function footerRow (){
      let td = document.createElement('td');
      trElement.appendChild(td);
      td.textContent = sum;
+     cookiesTotal = cookiesTotal+sum;
   
   }
+
+  let totals = document.createElement('th');
+  trElement.appendChild(totals);
+  totals.textContent=cookiesTotal;
+
 };
 HeaderRow();
  Seattle.customerPerHoure();
