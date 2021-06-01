@@ -15,6 +15,7 @@ li a {
   list-style-type: none;
   }
   
+  
 
   body{
     background-image: url("https://raw.githubusercontent.com/DevStation-COCC/bend-201d3/master/class-09/lab-b/assets/fish.jpg");
@@ -50,6 +51,11 @@ li a {
       font-size: 20px;
       font-family: 'Handlee', cursive;
       color:black;
+  }
+
+  #pics img{
+    width: 300px;
+    height: 300px;
   }
 
 
