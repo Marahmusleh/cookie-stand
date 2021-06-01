@@ -50,19 +50,17 @@ Shops.prototype.getcookiesNum = function(){
     };
        
  function HeaderRow() { 
-    let newTHead = document.createElement('thead');
-    table.appendChild(newTHead);
     let trElement = document.createElement('tr');
-    newTHead.appendChild(trElement);
+    table.appendChild(trElement);
     let thElement = document.createElement('th');
     trElement.appendChild(thElement);
-    thElement.textContent = '';
 
   
     for (let i = 0; i <hours.length; i++) {
       let thElement = document.createElement('th');
-      thElement.textContent = hours[i];
       trElement.appendChild(thElement);
+      thElement.textContent = hours[i];
+
       
     }
     let totalTH = document.createElement('th');
@@ -75,27 +73,45 @@ Shops.prototype.getcookiesNum = function(){
     let trElement = document.createElement('tr');
     table.appendChild(trElement);
     let thElement = document.createElement('th');
-    thElement.textContent = this.ShopName;
     trElement.appendChild(thElement);
-  
+    thElement.textContent = this.ShopName;
   
     for (let i = 0; i < hours.length; i++) {
         let cookieTD = document.createElement('td');
         cookieTD.textContent = this.cookiesPerHoure[i];
-        table.appendChild(cookieTD);
+        trElement.appendChild(cookieTD);
       }
     
-    let totalTD = document.createElement('td');
+    let totalTD = document.createElement('th');
     totalTD.textContent = this.total;
-    table.appendChild(totalTD);
+    trElement.appendChild(totalTD);
 
 }; 
 
+
+function footerRow (){
+  let trElement = document.createElement('tr');
+  table.appendChild(trElement);
+  let thElement = document.createElement('th');
+  trElement.appendChild(thElement);
+  thElement.textContent='Totals';
+
+  for(let i= 0 ; i<hours.length;i++){
+    let sum = 0 ;
+    sum = Seattle.cookiesPerHoure[i] + Tokyo.cookiesPerHoure[i] +
+    Paris.cookiesPerHoure[i]+ Dubai.cookiesPerHoure[i] + Lima.cookiesPerHoure[i];
   
- HeaderRow();
+     let td = document.createElement('td');
+     trElement.appendChild(td);
+     td.textContent = sum;
+  
+  }
+};
+HeaderRow();
  Seattle.customerPerHoure();
  Seattle.getcookiesNum();
  Seattle.render();
+
 
  Tokyo.customerPerHoure();
  Tokyo.getcookiesNum();
@@ -112,3 +128,5 @@ Shops.prototype.getcookiesNum = function(){
  Lima.customerPerHoure();
  Lima.getcookiesNum();
  Lima.render();
+
+ footerRow();
