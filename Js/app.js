@@ -89,49 +89,62 @@ Shops.prototype.getcookiesNum = function(){
 
 
 function footerRow (){
+  let tfooter = document.createElement('tfoot');
+  table.appendChild(tfooter);
   let trElement = document.createElement('tr');
-  table.appendChild(trElement);
+  tfooter.appendChild(trElement);
   let thElement = document.createElement('th');
   trElement.appendChild(thElement);
   thElement.textContent='Totals';
-  let cookiesTotal = 0;
-  for(let i= 0 ; i<hours.length;i++){
-    let sum = 0 ;
-    sum = Seattle.cookiesPerHoure[i] + Tokyo.cookiesPerHoure[i] +
-    Paris.cookiesPerHoure[i]+ Dubai.cookiesPerHoure[i] + Lima.cookiesPerHoure[i];
   
-     let td = document.createElement('td');
-     trElement.appendChild(td);
-     td.textContent = sum;
-     cookiesTotal = cookiesTotal+sum;
-  
-  }
+  let grandTotalCookies = 0;
 
-  let totals = document.createElement('th');
-  trElement.appendChild(totals);
-  totals.textContent=cookiesTotal;
+  for (let i = 0; i < hours.length; i++) {
+    let totalCookies = 0;
+    for( let j = 0; j < allcookieshops.length; j++) {
+      totalCookies += allcookieshops[j].cookiesPerHoure[i];
+      grandTotalCookies += allcookieshops[j].cookiesPerHoure[i];
+    }
+
+  let tdElement = document.createElement('td');
+  trElement.appendChild(tdElement);
+  tdElement.textContent=totalCookies;
+  }
+  let tdElement = document.createElement('td');
+  tdElement.textContent = grandTotalCookies;
+  trElement.appendChild(tdElement);
+  table.appendChild(trElement);
 
 };
+
+function allShops(){
+  for(let i=0;i<allcookieshops.length;i++){
+  allcookieshops[i].customerPerHoure();
+  allcookieshops[i].getcookiesNum();
+  allcookieshops[i].render();
+}
+};
+
+const userForm = document.getElementById('ID-Form');
+userForm.addEventListener('submit',handleSubmitting);
+
+
+function handleSubmitting(event){
+  event.preventDefault();
+  let location = event.target.LocationName.value;
+  let Min = event.target.Findmin.value;
+  let Max = event.target.Findmax.value;
+  let Avg = event.target.FindAvg.value;
+
+  let NewStore = new Shops(location,Min,Max,Avg);
+NewStore.customerPerHoure();
+NewStore.getcookiesNum();
+table.deleteRow(allcookieshops.length);
+NewStore.render();
+footerRow();
+
+};
+
 HeaderRow();
- Seattle.customerPerHoure();
- Seattle.getcookiesNum();
- Seattle.render();
-
-
- Tokyo.customerPerHoure();
- Tokyo.getcookiesNum();
- Tokyo.render();
-
- Dubai.customerPerHoure();
- Dubai.getcookiesNum();
- Dubai.render();
-
- Paris.customerPerHoure();
- Paris.getcookiesNum();
- Paris.render();
-
- Lima.customerPerHoure();
- Lima.getcookiesNum();
- Lima.render();
-
- footerRow();
+allShops();
+footerRow();
